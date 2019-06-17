@@ -9,22 +9,30 @@ namespace StarStaffTestTask
 {
     public class Triangle : Figure
     {
-        #region Private Fields
-
         private readonly double _ab;
         private readonly double _bc;
         private readonly double _ca;
+
+        #region Private Fields
 
         #endregion
 
         #region Public Properties
 
-        public double Ab => _ab;
+        public double Ab
+        {
+            get { return _ab; }
+        }
 
-        public double Bc => _bc;
+        public double Bc
+        {
+            get { return _bc; }
+        }
 
-        public double Ca => _ca;
-        
+        public double Ca
+        {
+            get { return _ca; }
+        }
 
         #endregion
 
@@ -38,6 +46,13 @@ namespace StarStaffTestTask
         /// <param name="ca"></param>
         public Triangle(double ab, double bc, double ca)
         {
+            if (ab < 0)
+                throw new ArgumentOutOfRangeException("ab");
+            if (bc < 0)
+                throw new ArgumentOutOfRangeException("bc");
+            if (ca < 0)
+                throw new ArgumentOutOfRangeException("ca");
+
             _ab = ab;
             _bc = bc;
             _ca = ca;
@@ -53,9 +68,9 @@ namespace StarStaffTestTask
         /// <returns></returns>
         public override double CalcArea()
         {
-            var s = (_ab + _bc + _ca) / 2;
+            var s = (Ab + Bc + Ca) / 2;
 
-            return Math.Sqrt(s * (s - _ab) * (s - _bc) * (s - _ca));
+            return Math.Sqrt(s * (s - Ab) * (s - Bc) * (s - Ca));
         }
 
         #endregion

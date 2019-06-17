@@ -19,6 +19,9 @@ namespace StarStaffTestTask
 
         public Circle(double radius)
         {
+            if (radius <= 0)
+                throw new ArgumentOutOfRangeException("radius");
+
             _radius = radius;
         }
 
@@ -26,9 +29,13 @@ namespace StarStaffTestTask
 
         #region Abstract Methods Implementation
 
+        /// <summary>
+        /// Can be cached of course
+        /// </summary>
+        /// <returns></returns>
         public override double CalcArea()
         {
-            return _radius * Math.PI;
+            return _radius * _radius * Math.PI;
         }
 
         #endregion
