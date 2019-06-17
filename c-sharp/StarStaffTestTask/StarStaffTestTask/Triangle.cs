@@ -106,11 +106,11 @@ namespace StarStaffTestTask
             {
                 if (ab > ca)
                 {
-                    return (ab * ab) - (ca * ca + bc * bc) < Double.Epsilon;
+                    return Math.Abs((ab * ab) - (ca * ca + bc * bc)) < Double.Epsilon;
                 }
                 else
                 {
-                    return (ca * ca) - (ab * ab + bc * bc) < Double.Epsilon;
+                    return Math.Abs((ca * ca) - (ab * ab + bc * bc)) < Double.Epsilon;
 
                 }
             }
@@ -118,11 +118,11 @@ namespace StarStaffTestTask
             {
                 if (bc > ca)
                 {
-                    return (bc * bc) - (ca * ca + ab * ab) < Double.Epsilon;
+                    return Math.Abs((bc * bc) - (ca * ca + ab * ab)) < Double.Epsilon;
                 }
                 else
                 {
-                    return (ca * ca) - (ab * ab + bc * bc) < Double.Epsilon;
+                    return Math.Abs((ca * ca) - (ab * ab + bc * bc)) < Double.Epsilon;
                 }
             }
         }
