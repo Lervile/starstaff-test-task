@@ -8,8 +8,13 @@ CREATE TABLE prod_cat (
   prod_id INT,
   cat_id  INT);
   
-ALTER TABLE prod_cat ADD FOREIGN KEY (prod_id) REFERENCES products(id);
-ALTER TABLE prod_cat ADD FOREIGN KEY (cat_id) REFERENCES categories(id);
+ALTER TABLE prod_cat 
+ADD CONSTRAINT FK_prodId  FOREIGN KEY (prod_id) 
+    REFERENCES products(id) 
+    ON DELETE CASCADE;
+ALTER TABLE prod_cat ADD CONSTRAINT FK_catId FOREIGN KEY (cat_id) 
+    REFERENCES categories(id) 
+    ON DELETE CASCADE;
 
 
 
